@@ -1,3 +1,7 @@
 - selenium_test_01.py
     - first test of selenium, searches keyword for youtube title and plays
     - no bigram algorithm yet
+- selenium_test_02.py
+    - improved version from selenium_test_01.py
+    - fixed issue of playing incorrect song when internet is slow
+        - adding "?search_query=" in the url instead of normal searching
