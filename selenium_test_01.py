@@ -31,6 +31,3 @@ driver.find_element_by_id("search-icon-legacy").click()
 # Play the video.
 wait.until(visible((By.ID, "video-title")))
 driver.find_element_by_id("video-title").click()
-
-youtubePlayer = document.getElementById("movie_player");
-youtubePlayer.getPlayerState();
