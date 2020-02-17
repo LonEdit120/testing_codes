@@ -1,16 +1,18 @@
+#! python2.7
 # -*- coding: utf-8 -*-
 import sys
 import time
+import imp
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+imp.reload(sys)
+# sys.setdefaultencoding('utf-8')
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome('C:/Python27/Scripts/chromedriver.exe')
 wait = WebDriverWait(driver, 10)
 
 presence = EC.presence_of_element_located
@@ -19,10 +21,10 @@ visible = EC.visibility_of_element_located
 # read csv file
 import csv
 with open('./gitignored_files/taiwanese_song_info.csv', 'rb') as data:
-# with open('./gitignored_files/song_test.csv', 'rb') as data:
+# with open('./gitignored_files/song_info.csv', 'r') as data:
     reader = csv.reader(data)
     song_dictionary = list(reader)
-with open('./gitignored_files/taiwanese_song_info_with_youtube_id.csv', 'wb') as csv_file:
+with open('./gitignored_files/taiwanese_song_info_with_youtube_id.csv', 'w', newline='', encoding='utf-8') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     # variables in case some songs got issues
     songs_cannot_be_found = []
