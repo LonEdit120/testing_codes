@@ -17,3 +17,5 @@
     - now able to get 3 songs' ID at a time instead of 1, while reducing 40% of the origin required time
 - bigram_test_01.py
     - bigram doing sorting on taiwanese song list
+- bigram_test_02.py
+    - getting the most possible song according to input string
