@@ -19,7 +19,7 @@ def create_dict():
     with open('./gitignored_files/taiwanese_song_bigram_2.csv', 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         for i in range(1, len(song_dictionary)) :
-            to_be_replaced = "().?!,-…（）'【】．。"
+            to_be_replaced = "().,?!'-…（）【】．。，"
             alphebat = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             word = song_dictionary[i][2]
             for symbol in to_be_replaced :
@@ -53,7 +53,7 @@ def search(input):
     for i in range(0,len(input)-1):
         input_bidic.append(input[i:i+2])
     for i in range(0,len(input_bidic)):
-        if bidic[input_bidic[i]] :
+        if input_bidic[i] in bidic :
             for j in range(0,len(bidic[input_bidic[i]][0])):
                 candidates.append(bidic[input_bidic[i]][0][j])
     most_possible_results = most_frequent(candidates)
@@ -83,4 +83,5 @@ def init():
 
 if __name__ == '__main__' :
     init()
-    search("春秋大")
+    keyword = input("Please input keyword :\n")
+    search(keyword)
